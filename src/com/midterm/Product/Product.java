@@ -1,23 +1,26 @@
 package com.midterm.Product;
 
-import com.midterm.Category.Category;
+import com.midterm.SubCategory.SubCategory;
 
-public class Product extends Category {
+public class Product{
 	private int productID;
 	private String productName;
 	private String productDetail;
+	private int prodQty;
 	private int price;
 	private String image;
-	
+	private SubCategory subCategory;
 	public Product() {}
 	
-	public Product(int productID, String productName, String productDetail, String image, int price, int categoryID, String categoryName) {
-		super(categoryID, categoryName);
+	public Product(int productID, String productName, String productDetail, String image,int prodQty, int price, SubCategory subCategory) {
 		this.productID  = productID;
 		this.productName  = productName;
 		this.productDetail  = productDetail;
 		this.image = image;
 		this.price = price;
+		this.prodQty = prodQty;
+		this.subCategory = subCategory;
+		
 	}
 
 	public int getProductID() {
@@ -58,6 +61,22 @@ public class Product extends Category {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public int getProdQty() {
+		return prodQty;
+	}
+
+	public void setProdQty(int prodQty) {
+		this.prodQty = prodQty;
+	}
+
+	public SubCategory getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(SubCategory subCategory) {
+		this.subCategory = subCategory;
 	}
 	
 	

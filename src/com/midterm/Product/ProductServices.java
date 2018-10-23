@@ -15,4 +15,11 @@ public class ProductServices {
 	public List<Product> getAllProducts(){
 		return prodDao.getAllProducts();
 	}
+	
+	@GET
+	@Path("products/{subCatID}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> getProductBySubCategory(@PathParam("subCatID") int subCatID){
+		return prodDao.getProductBySubCategory(subCatID);
+	}
 }

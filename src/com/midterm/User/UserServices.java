@@ -21,7 +21,7 @@ public class UserServices {
 	@GET
 	@Path("users/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUser(@PathParam("id") int id){
+	public User getUser(@PathParam("id") int id){
 		return userDao.getUser(id);
 	}
 	

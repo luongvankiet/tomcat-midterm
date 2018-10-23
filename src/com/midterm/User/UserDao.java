@@ -2,8 +2,6 @@ package com.midterm.User;
 
 import java.util.*;
 
-import javax.ws.rs.core.Response;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -39,13 +37,13 @@ public class UserDao {
 	}
 	
 	//get User by id
-	public Response getUser(int id) {
+	public User getUser(int id) {
 		List<User> userList = getAllUsers();
 		for(User user: userList) {
 			if(id == user.getUserID()) {
-				return Response.ok(user).build();
+				return user;
 			}
 		}
-		return Response.status(Response.Status.NOT_FOUND).entity("User not found").build();
+		return null;
 	}
 }

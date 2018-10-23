@@ -34,4 +34,14 @@ public class CategoryDao {
 		}
 		return categoryList;
 	}
+	
+	public Category getCategory(int categoryID) {
+		List<Category> cateList = getAllCategories();
+		for(Category category: cateList) {
+			if(categoryID == category.getCategoryID()) {
+				return category;
+			}
+		}
+		return null;
+	}
 }

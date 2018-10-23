@@ -1,16 +1,18 @@
 package com.midterm.SubCategory;
 
+import com.midterm.Category.Category;
+
 public class SubCategory {
 	private int subCatID;
 	private String subCatName;
-	private int categoryID;
+	private Category category;
 	
 	public SubCategory() {}
 	
-	public SubCategory(int subCatID, String subCatName, int categoryID) {
+	public SubCategory(int subCatID, String subCatName, Category category) {
 		this.setSubCatID(subCatID);
 		this.setSubCatName(subCatName);
-		this.setCategoryID(categoryID);
+		this.setCategory(category);
 	}
 
 	public String getSubCatName() {
@@ -29,11 +31,11 @@ public class SubCategory {
 		this.subCatID = subCatID;
 	}
 
-	public int getCategoryID() {
-		return categoryID;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 }

@@ -7,8 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
+import com.midterm.Category.Category;
+import com.midterm.Category.CategoryDao;
+
 
 public class SubCategoryDao {
+	CategoryDao categoryDao = new CategoryDao();
 	public List<SubCategory> getAllSubCate() {
 		List<SubCategory> subCateList = new ArrayList<SubCategory>();
 		Connection conn = null;
@@ -23,7 +27,8 @@ public class SubCategoryDao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM sub_categories");
 			while(rs.next()) {
-				subCateList.add(new SubCategory(rs.getInt("subCatID"), rs.getString("subCatName"), rs.getInt("categoryID")));
+				Category category = categoryDao.getCategory(rs.getInt("categoryID"));
+				subCateList.add(new SubCategory(rs.getInt("subCatID"), rs.getString("subCatName"), category));
 			}
 		} catch (Exception e){
 			e.printStackTrace();
@@ -33,5 +38,15 @@ public class SubCategoryDao {
 			try { if(conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace();}
 		}
 		return subCateList;
+	}
+	
+	public SubCategory getSubCategory(int subCatID) {
+		List<SubCategory> subCateList = getAllSubCate();
+		for(SubCategory subCate: subCateList) {
+			if(subCatID == subCate.getSubCatID()) {
+				return subCate;
+			}
+		}
+		return null;
 	}
 }
